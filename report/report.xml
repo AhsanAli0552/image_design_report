@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <record id="timesheet_report_paperformat" model="report.paperformat">
+    <record id="sale_product_report_paperformat" model="report.paperformat">
         <field name="name">A4 Portrait Account</field>
         <field name="default" eval="True"/>
         <field name="format">A4</field>
         <field name="orientation">Portrait</field>
-        <field name="margin_top">7</field>
+        <field name="margin_top">3</field>
         <field name="margin_bottom">5</field>
         <field name="margin_left">0</field>
         <field name="margin_right">0</field>
@@ -15,13 +15,13 @@
         <field name="dpi">110</field>
     </record>
     <record id="sku_sale_report" model="ir.actions.report">
-        <field name="name">sale report Pdf</field>
+        <field name="name">Sale Product Report</field>
         <field name="model">sale.order</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">cyb_sku_product_report.sku_sale_pdf_report</field>
         <field name="report_file">cyb_sku_product_report.sku_sale_pdf_report</field>
         <field name="binding_model_id" ref="sale.model_sale_order"/>
         <field name="binding_type">report</field>
-        <field name="paperformat_id" ref="cyb_sku_product_report.timesheet_report_paperformat"/>
+        <field name="paperformat_id" ref="cyb_sku_product_report.sale_product_report_paperformat"/>
     </record>
 </odoo>
