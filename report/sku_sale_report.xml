@@ -8,15 +8,19 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-7 pt-5">
-                                    <h3>SKY | Product Title Name</h3>
+                                    <h3><t t-esc="line.default_code"/> |<t t-esc="line.product_id.name"/></h3>
                                     <hr/>
-
-                                    <div class="mt-4">
-                                        <img src="/practice_product_line_rp/static/src/img/white_imageDouble.png"
-                                             style="width:550px;"/>
+                                    <div class="text-center mt-4">
+                                        <t t-if="line.product_id.hover_image">
+                                            <img t-att-src="image_data_uri(line.product_id.hover_image)"
+                                                 t-att-alt="line.product_id.name or 'Product Image'"
+                                                 style="width: 550px;"/>
+                                        </t>
+                                        <t t-else="">
+                                            <p style="color: #999;">[NO IMAGE AVAILABLE]</p>
+                                        </t>
                                     </div>
                                     <hr/>
-
                                     <!--another row in col-7-->
                                     <div class="row">
                                         <div class="col-8">
@@ -26,22 +30,28 @@
                                             <div class="row">
                                                 <div class="col-4 me-3">
                                                     <div class="product_image">
-                                                        <img src="/practice_product_line_rp/static/src/img/Umbrella.png"
-                                                             style="width:100%;"/>
+                                                        <t t-if="line.product_id.product_template_image_ids[0]">
+                                                            <img t-att-src="image_data_uri(line.product_id.product_template_image_ids[0].image_1920)"
+                                                                 style="width:100%;"/>
+                                                        </t>
                                                         <p class="text-center mt-1">Perforated Back panel</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-4 me-3">
                                                     <div class="product_image">
-                                                        <img src="/practice_product_line_rp/static/src/img/Umbrella.png"
-                                                             style="width:100%;"/>
+                                                        <t t-if="line.product_id.product_template_image_ids[1]">
+                                                            <img t-att-src="image_data_uri(line.product_id.product_template_image_ids[1].image_1920)"
+                                                                 style="width:100%;"/>
+                                                        </t>
                                                         <p class="text-center mt-1">Mesh Liner</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-4 me-3">
                                                     <div class="product_image">
-                                                        <img src="/practice_product_line_rp/static/src/img/Umbrella.png"
-                                                             style="width:100%;"/>
+                                                         <t t-if="line.product_id.product_template_image_ids[2]">
+                                                            <img t-att-src="image_data_uri(line.product_id.product_template_image_ids[2].image_1920)"
+                                                                 style="width:100%;"/>
+                                                        </t>
                                                         <p class="text-center mt-1">Hunting The Crop</p>
                                                     </div>
                                                 </div>
@@ -52,10 +62,8 @@
                                                 <b>Description</b>
                                             </h5>
                                             <div class="description_text">
-                                                <p>Based on the search results, "Picnic" refers primarily
-                                                    to the
-                                                    Dutch-based online supermarket to the
-                                                    Dutch-based online supermarket.
+                                                <p>
+                                                    <t t-esc="line.product_id.description_sale"/>
                                                 </p>
                                             </div>
 
@@ -64,8 +72,10 @@
                                 </div>
                                 <div class="col-5">
                                     <div class="right_image">
-                                        <img src="/practice_product_line_rp/static/src/img/blue_huddy.png"
-                                             class="ps-3" style="width:480px;"/>
+                                        <t t-if="line.x_studio_art_image">
+                                            <img t-att-src="image_data_uri(line.x_studio_art_image)"
+                                                 class="ps-3" style="width: 480px;"/>
+                                        </t>
                                     </div>
                                 </div>
                             </div>
